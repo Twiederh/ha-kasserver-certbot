@@ -1,0 +1,41 @@
+name: "Let's Encrypt (All-Inkl KAS / kasserver)"
+version: "1.0.0"
+slug: "kasserver_certbot"
+description: "Erstellt und erneuert Let's-Encrypt-Zertifikate per DNS-01-Challenge über die All-Inkl KAS API (fetzerch/kasserver)"
+url: "https://github.com/fetzerch/kasserver"
+arch:
+  - aarch64
+  - amd64
+  - armhf
+  - armv7
+  - i386
+init: false
+startup: application
+boot: auto
+map:
+  - ssl:rw
+options:
+  domains:
+    - "example.com"
+    - "*.example.com"
+  email: "you@example.com"
+  kas_user: ""
+  kas_password: ""
+  staging: false
+  cert_name: "kasserver"
+  key_type: "ecdsa"
+  propagation_seconds: 90
+  renew_check_interval_hours: 12
+  auto_restart_core: true
+schema:
+  domains:
+    - "str"
+  email: "email"
+  kas_user: "str"
+  kas_password: "password"
+  staging: "bool"
+  cert_name: "str"
+  key_type: "list(rsa|ecdsa)"
+  propagation_seconds: "int(0,600)"
+  renew_check_interval_hours: "int(1,168)"
+  auto_restart_core: "bool"
