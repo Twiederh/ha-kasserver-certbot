@@ -60,7 +60,6 @@ run_certbot() {
         --manual \
         --manual-auth-hook kasserver-dns-certbot \
         --manual-cleanup-hook kasserver-dns-certbot \
-        --manual-public-ip-logging-ok \
         ${STAGING_ARG} \
         "${DOMAIN_ARGS[@]}"
 }
